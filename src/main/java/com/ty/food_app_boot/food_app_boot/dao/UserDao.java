@@ -44,11 +44,18 @@ public class UserDao {
 	public User update(int id, User user) {
 		User u = getUserById(id);
 		if (u != null) {
-			
-			
 			return repositary.save(user);
 		}
 		return null;
+	}
+
+	public User valid(String email, String password) {
+		User u = repositary.vaildEmailAndPassword(email, password);
+		if (u != null) {
+			return u;
+		}
+		return null;
+
 	}
 
 }

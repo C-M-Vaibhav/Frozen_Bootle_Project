@@ -32,8 +32,8 @@ public class ProductController {
 		@ApiResponse(code = 405,message = "Bad request, not proper Product data")
 	})
 	@PostMapping("/product")
-	public ResponseStruture<Product> saveProduct(@RequestBody @Valid Product product){
-		return service.saveProduct(product);
+	public ResponseStruture<Product> saveProduct(@RequestParam String email,@RequestParam String password,@RequestBody @Valid Product product){
+		return service.saveProduct(email,password,product);
 	}
 	
 	@PostMapping("/getproduct")
@@ -67,8 +67,8 @@ public class ProductController {
 		@ApiResponse(code = 405,message = "Bad request, not proper Person data")
 	})
 	@PutMapping("/product")
-	public ResponseStruture<Product> updateProduct(@RequestParam int id,@RequestBody @Valid Product product) {
-		return service.updateProduct(id, product);
+	public ResponseStruture<Product> updateProduct(@RequestParam String email,@RequestParam String password,@RequestParam int id,@RequestBody @Valid Product product) {
+		return service.updateProduct(email,password,id, product);
 	}
 	
 	@ApiOperation(value = "Deleted the details of Person",produces = "application/json",consumes = "application/json")

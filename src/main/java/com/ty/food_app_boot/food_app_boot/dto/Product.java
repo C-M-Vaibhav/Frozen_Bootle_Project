@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -21,6 +23,10 @@ public class Product {
 	@NotNull(message = "description is not should null")
 	private String description;
 	private int offer;
+	@ManyToOne
+	@JoinColumn(name = "Admin_Id")
+	private User user;
+	
 	public int getId() {
 		return id;
 	}
@@ -63,5 +69,18 @@ public class Product {
 	public void setOffer(int offer) {
 		this.offer = offer;
 	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 
 }

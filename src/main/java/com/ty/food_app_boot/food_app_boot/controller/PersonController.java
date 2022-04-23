@@ -57,8 +57,8 @@ public class PersonController {
 		@ApiResponse(code = 405,message = "Bad request, not proper Person data")
 	})
 	@PutMapping("/person")
-	public ResponseStruture<Person> updatePerson(@RequestParam int id,@RequestBody @Valid Person person){
-		return service.updatePerson(id, person);
+	public ResponseStruture<Person> updatePerson(@RequestParam String email,@RequestParam String password,@RequestBody @Valid Person person){
+		return service.updatePerson(email,password, person);
 	}
 	
 	@ApiOperation(value = "Got the details of AllPersons",produces = "application/json",consumes = "application/json")

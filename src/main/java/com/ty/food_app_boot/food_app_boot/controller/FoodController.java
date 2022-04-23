@@ -1,5 +1,7 @@
 package com.ty.food_app_boot.food_app_boot.controller;
 
+//github.com/C-M-Vaibhav/Endless_event.gitpackage com.ty.food_app_boot.food_app_boot.controller;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -24,7 +26,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 public class FoodController {
-	
+
 	@Autowired
 	private FoodOrderService service;
 	
@@ -33,9 +35,9 @@ public class FoodController {
 		@ApiResponse(code = 200,message = "FoodOrder saved"),
 		@ApiResponse(code = 405,message = "Bad request, not proper User data or FoodOrder")
 	})
-	@PostMapping("person/{u_id}/order")
-	public ResponseStruture<FoodOrder> saveFoodOrder(@PathVariable int u_id,@RequestBody @Valid FoodOrder foodOrder) {
-		return service.saveFoodOrder(u_id, foodOrder);
+	@PostMapping("person/{email}/{password}/order")
+	public ResponseStruture<FoodOrder> saveFoodOrder(@PathVariable String email,@PathVariable String password,@RequestBody @Valid FoodOrder foodOrder) {
+		return service.saveFoodOrder(email,password, foodOrder);
 	}
 	
 	@GetMapping("/orderobj")

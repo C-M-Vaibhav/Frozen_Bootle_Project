@@ -30,8 +30,8 @@ public class PersonService {
 		return struture;
 	}
 	
-	public ResponseStruture<Person> updatePerson(int id, Person person){
-		Person p = dao.updatePersonById(id, person);
+	public ResponseStruture<Person> updatePerson(String email,String password, Person person){
+		Person p = dao.updatePersonById(email,password, person);
 		if(p==null) {
 			throw new NoIdFoundException();
 		}

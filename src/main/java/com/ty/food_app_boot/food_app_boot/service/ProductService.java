@@ -18,8 +18,8 @@ public class ProductService {
 	@Autowired
 	ProductDao dao;
 	
-	public ResponseStruture<Product> saveProduct(Product product) {
-		Product pro = dao.saveProduct(product);
+	public ResponseStruture<Product> saveProduct(String email, String password, Product product) {
+		Product pro = dao.saveProduct(email,password,product);
 		if(pro==null) {
 			throw new NoIdFoundException("product is not saved");
 		}
@@ -54,8 +54,8 @@ public class ProductService {
 		return struture;
 	}
 	
-	public ResponseStruture<Product> updateProduct(int id,Product pro) {
-		Product product = dao.updateProductById(id, pro);
+	public ResponseStruture<Product> updateProduct(String email,String password,int id,Product pro) {
+		Product product = dao.updateProductById(email,password,id, pro);
 		if(product==null) {
 			throw new NoIdFoundException("product is id incorrect");
 		}

@@ -1,5 +1,7 @@
 package com.ty.food_app_boot.food_app_boot.dto;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 public class User {
@@ -19,8 +22,8 @@ public class User {
 	private String email;
 	private String password;
 	private String role;
-	
-	
+	@OneToMany(mappedBy = "user")
+	private List<Product> products;
 	public int getId() {
 		return id;
 	}
@@ -60,5 +63,14 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+	
 
 }

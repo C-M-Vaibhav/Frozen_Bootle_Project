@@ -21,8 +21,8 @@ public class FoodOrderDao {
 	@Autowired
 	FoodOrderRespositary respositary;
 
-	public FoodOrder saveFoodOrder(int p_id, FoodOrder order) {
-		Person person = dao.getPersonById(p_id);
+	public FoodOrder saveFoodOrder(String email,String password, FoodOrder order) {
+		Person person = dao.validateEmail(email, password);
 		List<Items> items = order.getItems();
 		
 		if (person != null) {

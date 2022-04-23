@@ -19,9 +19,9 @@ public class FoodOrderService {
 	@Autowired
 	FoodOrderDao dao;
 	
-	public ResponseStruture<FoodOrder> saveFoodOrder(int u_id,FoodOrder foodOrder) {
+	public ResponseStruture<FoodOrder> saveFoodOrder(String email,String password,FoodOrder foodOrder) {
 		double total = 0;
-		FoodOrder food = dao.saveFoodOrder(u_id, foodOrder);
+		FoodOrder food = dao.saveFoodOrder(email,password, foodOrder);
 		List<Items> items = foodOrder.getItems();
 		for(Items i : items) {
 			total += i.getCost();

@@ -3,6 +3,7 @@ package com.ty.food_app_boot.food_app_boot.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public class FoodOrder {
 	private LocalDateTime dateTime;
 	private double total;
 
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
 	private List<Items> items;
 	
 	@ManyToOne
